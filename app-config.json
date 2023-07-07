@@ -1,0 +1,16 @@
+{
+    "app": {
+        "title": "DỊCH VỤ CÔNG",
+        "headerColor": "",
+        "textColor": "white",
+        "statusBarColor": "#046DD6",
+        "leftButton": "back",
+        "hideIOSSafeAreaBottom": true,
+        "statusBar": "transparent"
+    },
+    "debug": false,
+    "listCSS": [],
+    "listSyncJS": [],
+    "listAsyncJS": [],
+    "pages": []
+}

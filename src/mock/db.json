@@ -1,0 +1,125 @@
+{
+    "organization": {
+        "officialAccounts": [
+            {
+                "id": "oa1",
+                "name": "OA Chính quyền cơ sở",
+                "description": "Quận huyện, Tỉnh, Thành Phố "
+            }
+        ],
+        "id": "org1",
+        "logoUrl": "",
+        "description": "Organization description",
+        "name": "Ban ngành, chính quyền cơ sở"
+    },
+    "profiles": [
+        {
+            "name": "John Doe",
+            "dueDate": "2023-07-06T10:00:00Z",
+            "profileCode": "ABC123",
+            "notifications": [
+                {
+                    "message": "Notification 1",
+                    "createdAt": "2023-07-06T09:00:00Z"
+                },
+                {
+                    "message": "Notification 2",
+                    "createdAt": "2023-07-05T14:30:00Z"
+                }
+            ]
+        }
+    ],
+    "schedule-appointment": {},
+    "feedbacks": {
+        "data": [
+            {
+                "id": "1",
+                "title": "Feedback 1",
+                "content": "This is the content of feedback 1.",
+                "response": "This is the response to feedback 1.",
+                "creationTime": "2023-07-06T10:30:00Z",
+                "responseTime": "2023-07-06T11:00:00Z",
+                "type": "Type 1",
+                "imageUrls": [
+                    "https://example.com/image1.jpg",
+                    "https://example.com/image2.jpg"
+                ]
+            },
+            {
+                "id": "2",
+                "title": "Feedback 2",
+                "content": "This is the content of feedback 2.",
+                "response": "This is the response to feedback 2.",
+                "creationTime": "2023-07-05T09:15:00Z",
+                "responseTime": "2023-07-05T10:00:00Z",
+                "type": "Type 2",
+                "imageUrls": []
+            },
+            {
+                "id": "3",
+                "title": "Feedback 3",
+                "content": "This is the content of feedback 3.",
+                "response": "",
+                "creationTime": "2023-07-04T14:20:00Z",
+                "responseTime": "2023-07-04T14:20:00Z",
+                "type": "Type 1",
+                "imageUrls": ["https://example.com/image3.jpg"]
+            }
+        ],
+        "current": 1,
+        "total": 3,
+        "pageSize": 10
+    },
+    "feedbackTypes": [
+        {
+            "id": 1,
+            "title": "type 1"
+        },
+        {
+            "id": 2,
+            "title": "type 2"
+        }
+    ],
+    "articles": [
+        {
+            "author": "Author 1",
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ",
+            "desc": "Description of Article 1",
+            "link": "https://mini.zalo.me/",
+            "createdAt": "2023-07-06T00:00:00Z",
+            "thumb": "/assets/thumb.png",
+            "id": "article1"
+        },
+        {
+            "author": "Author 2",
+            "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit ",
+            "desc": "Description of Article 2",
+            "link": "https://mini.zalo.me/",
+            "createdAt": "2023-07-05T00:00:00Z",
+            "thumb": "/assets/thumb.png",
+            "id": "article2"
+        }
+    ],
+    "guidelines": {
+        "data": [
+            {
+                "id": "1",
+                "question": "Lorem ipsum dolor sit amet?",
+                "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend"
+            },
+            {
+                "id": "2",
+                "question": "Lorem ipsum dolor sit amet?",
+                "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend"
+            },
+            {
+                "id": "3",
+                "question": "Lorem ipsum dolor sit amet?",
+                "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend"
+            }
+        ],
+        "page": 1,
+        "total": 3,
+        "currentPageSize": 10
+    }
+}

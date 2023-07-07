@@ -1,0 +1,17 @@
+{
+    "cwd": "/",
+    "newProject": true,
+    "name": "Dịch Vụ Công",
+    "package": "zmp-ui",
+    "framework": "react-typescript",
+    "cssPreProcessor": "scss",
+    "template": "blank",
+    "includeTailwind": true,
+    "theming": {
+        "color": "#007aff",
+        "darkTheme": false,
+        "fillBars": false
+    },
+    "customBuild": false,
+    "stateManagement": "recoil"
+}

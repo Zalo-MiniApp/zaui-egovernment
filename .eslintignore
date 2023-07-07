@@ -1,0 +1,6 @@
+.git
+build
+node_modules
+dist
+www
+package.json
