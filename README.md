@@ -18,6 +18,7 @@ Template for E Government Zalo Mini App
 
 The project follows a specific structure to organize its codebase. Here's an overview of the key directories and their contents:
 
+```shell
 .
 ├── src
 │   ├── components
@@ -64,7 +65,7 @@ The project follows a specific structure to organize its codebase. Here's an ove
 ├── .gitignore
 ├── package.json
 └── README.md
-
+```
 
 - **`src/components`**: Contains UI components and common components used throughout the project.
 - **`src/pages`**: Contains pages and page sections. Each page represents a specific route or view of the application.
