@@ -7,7 +7,7 @@ import {
     GetFeedbackTypeParams,
     getFeedbackTypes,
 } from "@service/services.mock";
-import { create, StateCreator } from "zustand";
+import { StateCreator } from "zustand";
 
 export interface FeedbackSlice {
     creatingFeedback?: boolean;
@@ -19,7 +19,7 @@ export interface FeedbackSlice {
     feedbackDetail?: Feedback;
     createFeedback: (
         feedback: CreateFeedbackParams,
-        organizationId: string
+        organizationId: string,
     ) => Promise<boolean>;
     getFeedbacks: (params: GetFeedbacksParams) => Promise<void>;
     getFeedbackTypes: (params: GetFeedbackTypeParams) => Promise<void>;
@@ -33,7 +33,7 @@ const feedbackSlice: StateCreator<FeedbackSlice> = (set, get) => ({
 
     createFeedback: async (
         feedback: CreateFeedbackParams,
-        organizationId: string
+        organizationId: string,
     ) => {
         try {
             set(state => ({
@@ -41,7 +41,6 @@ const feedbackSlice: StateCreator<FeedbackSlice> = (set, get) => ({
                 creatingFeedback: true,
             }));
             const rs = await createFeedback(feedback, organizationId);
-            console.log("rs", rs);
 
             set(state => ({
                 ...state,
@@ -110,9 +109,9 @@ const feedbackSlice: StateCreator<FeedbackSlice> = (set, get) => ({
     getFeedback: (params: { id: number }) => {
         const { id } = params;
 
-        const feedback = get().feedbacks?.feedbacks.find(item => {
-            return item.id === id;
-        });
+        const feedback = get().feedbacks?.feedbacks.find(
+            item => item.id === id,
+        );
         set(state => ({ ...state, feedbackDetail: feedback }));
     },
 });

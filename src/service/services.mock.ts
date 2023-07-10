@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
     Article,
     Articles,
@@ -21,7 +23,7 @@ export interface GetOrganizationParams {
 }
 
 export const getOrganization = async (
-    params: GetOrganizationParams
+    params: GetOrganizationParams,
 ): Promise<Organization> => {
     const org: Organization = {
         ...db.organization,
@@ -52,7 +54,7 @@ export interface GetArticlesResponse {
 }
 
 export const getArticles = async (
-    params: GetArticlesParams
+    params: GetArticlesParams,
 ): Promise<Articles> => {
     const articles: Articles = {
         articles: db.articles.map(item => ({
@@ -85,7 +87,7 @@ export interface GetFeedbacksResponse {
 }
 
 export const getFeedbacks = async (
-    params: GetFeedbacksParams
+    params: GetFeedbacksParams,
 ): Promise<Feedbacks> => {
     const feedbacks: Feedbacks = {
         ...db.feedbacks,
@@ -113,20 +115,19 @@ export interface GetFeedbackTypeParams {
 }
 
 export const getFeedbackTypes = async (
-    params: GetFeedbackTypeParams
-): Promise<FeedbackType[]> => {
-    return new Promise(resolve => {
+    params: GetFeedbackTypeParams,
+): Promise<FeedbackType[]> =>
+    new Promise(resolve => {
         setTimeout(() => {
             resolve(
                 db.feedbackTypes.map((item, index) => ({
                     id: Number(item.id),
                     title: item.title,
                     order: index + 1,
-                }))
+                })),
             );
         }, 500);
     });
-};
 
 export interface CreateFeedbackParams {
     organizationId?: string;
@@ -139,14 +140,13 @@ export interface CreateFeedbackParams {
 
 export const createFeedback = async (
     feedback: CreateFeedbackParams,
-    organizationId: string
-): Promise<boolean> => {
-    return new Promise(resolve => {
+    organizationId: string,
+): Promise<boolean> =>
+    new Promise(resolve => {
         setTimeout(() => {
             resolve(true);
         }, 500);
     });
-};
 
 export interface GetInformationGuidesParams {
     organizationId: string;
@@ -161,16 +161,15 @@ export interface GetInformationGuidesResponse {
 }
 
 export const getInformationGuides = async (
-    params: GetInformationGuidesParams
-): Promise<InformationGuides> => {
-    return Promise.resolve({
+    params: GetInformationGuidesParams,
+): Promise<InformationGuides> =>
+    Promise.resolve({
         ...db.guidelines,
         informationGuides: db.guidelines.data.map(item => ({
             ...item,
             id: Number(item.id),
         })),
     });
-};
 
 export interface GetWorkScheduleParams {
     organizationId: string;
@@ -187,9 +186,9 @@ export interface GetWorkScheduleResponse {
 }
 
 export const getWorkSchedule = async (
-    params: GetWorkScheduleParams
-): Promise<ScheduleAppointment | null> => {
-    return new Promise(resolve => {
+    params: GetWorkScheduleParams,
+): Promise<ScheduleAppointment | null> =>
+    new Promise(resolve => {
         setTimeout(() => {
             if (!store.getState().schedule) {
                 return resolve(null);
@@ -206,7 +205,6 @@ export const getWorkSchedule = async (
             });
         }, 500);
     });
-};
 
 export interface CreateWorkScheduleParams {
     organizationId: string;
@@ -227,7 +225,7 @@ export interface CreateWorkScheduleResponse {
 }
 
 export const createWorkSchedule = async (
-    params: CreateWorkScheduleParams
+    params: CreateWorkScheduleParams,
 ): Promise<ScheduleAppointment | null> => {
     try {
         return new Promise(resolve => {
@@ -257,9 +255,9 @@ export interface SearchProfileParams {
 export type SearchProfilesResponse = Profile[];
 
 export const searchProfiles = async (
-    params: SearchProfileParams
-): Promise<Profile[] | undefined> => {
-    return new Promise(resolve => {
+    params: SearchProfileParams,
+): Promise<Profile[] | undefined> =>
+    new Promise(resolve => {
         setTimeout(() => {
             resolve(
                 db.profiles.map(item => ({
@@ -269,8 +267,7 @@ export const searchProfiles = async (
                         ...noti,
                         createdAt: new Date(noti.createdAt),
                     })),
-                }))
+                })),
             );
         }, 500);
     });
-};

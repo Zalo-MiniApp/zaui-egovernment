@@ -3,7 +3,7 @@ import {
     getInformationGuides,
     GetInformationGuidesParams,
 } from "@service/services.mock";
-import { create, StateCreator } from "zustand";
+import { StateCreator } from "zustand";
 
 export interface InformationGuideSlice {
     gettingInformationGuide?: boolean;
@@ -11,10 +11,7 @@ export interface InformationGuideSlice {
     getInformationGuides: (params: GetInformationGuidesParams) => Promise<void>;
 }
 
-const informationGuideSlice: StateCreator<InformationGuideSlice> = (
-    set,
-    get
-) => ({
+const informationGuideSlice: StateCreator<InformationGuideSlice> = set => ({
     gettingInformationGuide: true,
 
     getInformationGuides: async (params: GetInformationGuidesParams) => {

@@ -1,13 +1,11 @@
 import { ScheduleAppointment } from "@dts";
-import { StateCreator, create } from "zustand";
-import appSlice from "./appSlice";
-import organizationStore, { OrganizationSlice } from "./organizationSlice";
+import { StateCreator } from "zustand";
 import {
     CreateWorkScheduleParams,
-    GetWorkScheduleParams,
     createWorkSchedule,
     getWorkSchedule,
 } from "@service/services.mock";
+import { OrganizationSlice } from "./organizationSlice";
 
 export interface ScheduleSlice {
     gettingSchedule?: boolean;
@@ -15,7 +13,7 @@ export interface ScheduleSlice {
     schedule?: ScheduleAppointment;
     getSchedule: () => Promise<void>;
     createSchedule: (
-        params: Omit<CreateWorkScheduleParams, "organizationId">
+        params: Omit<CreateWorkScheduleParams, "organizationId">,
     ) => void;
 }
 
@@ -56,7 +54,7 @@ const scheduleSlice: StateCreator<
         }
     },
     createSchedule: async (
-        params: Omit<CreateWorkScheduleParams, "organizationId">
+        params: Omit<CreateWorkScheduleParams, "organizationId">,
     ) => {
         try {
             const organizationId = get().organization?.id;

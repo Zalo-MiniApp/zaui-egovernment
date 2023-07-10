@@ -71,7 +71,7 @@ export interface UploadImageResponse {
 }
 
 export const pickImages = async (
-    params: PickImageParams
+    params: PickImageParams,
 ): Promise<(ImageType & { name: string })[]> => {
     try {
         const res = await openMediaPicker({

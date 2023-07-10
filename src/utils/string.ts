@@ -4,20 +4,19 @@ export const getAvatarName = ({
 }: {
     name: string;
     length?: number;
-}): string => {
-    return name
+}): string =>
+    name
         ?.split(" ")
         .map(str => (str ? str[0].toUpperCase() : ""))
         .join("")
         .slice(0, length);
-};
 
 /*
   generatePath function from  @remix-run/router
  */
 export const generatePath = (
     originalPath: string,
-    params: { [key: string]: any } = {}
+    params: { [key: string]: any } = {},
 ): string => {
     let path = originalPath;
 
@@ -27,7 +26,7 @@ export const generatePath = (
 
     return path
         .replace(/^:(\w+)(\??)/g, (_, key, optional) => {
-            let param = params[key];
+            const param = params[key];
 
             if (optional === "?") {
                 return param == null ? "" : param;
@@ -36,13 +35,13 @@ export const generatePath = (
             return param;
         })
         .replace(/\/:(\w+)(\??)/g, (_, key, optional) => {
-            let param = params[key];
+            const param = params[key];
 
             if (optional === "?") {
-                return param == null ? "" : "/" + param;
+                return param == null ? "" : `/${param}`;
             }
 
-            return "/" + param;
+            return `/${param}`;
         }) // Remove any optional markers from optional static segments
         .replace(/\?/g, "")
         .replace(/(\/?)\*/, (_, prefix, __, str) => {
@@ -54,22 +53,21 @@ export const generatePath = (
                 return str === "/*" ? "/" : "";
             } // Apply the splat
 
-            return "" + prefix + params[star];
+            return `${prefix}${params[star]}`;
         });
 };
 
 /**
  * Add leading zero number
  */
-export const padWithLeadingZeros = (num: number, totalLength: number) => {
-    return String(num).padStart(totalLength, "0");
-};
+export const padWithLeadingZeros = (num: number, totalLength: number) =>
+    String(num).padStart(totalLength, "0");
 
 /**
  * Validate phoneNumber
  */
 export const isValidPhoneNumber = (number: string) => {
-    var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    const phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     if (number.match(phoneno)) {
         return true;
     }

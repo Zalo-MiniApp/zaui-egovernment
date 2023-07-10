@@ -11,29 +11,28 @@ import {
     ScheduleAppointment,
     ScheduleAppointmentStatus,
 } from "@dts/index";
-import { request } from "./request";
 import {
     API,
-    BASE_URL,
     TOTAL_ARTICLES_PER_PAGE,
     TOTAL_FEEDBACKS_PER_PAGE,
     TOTAL_INFORMATION_GUIDE_PER_PAGE,
 } from "@constants/common";
 import { generatePath } from "@utils/string";
 import { formatDate } from "@utils/date-time";
+import { request } from "./request";
 
 export interface GetOrganizationParams {
     miniAppId: string;
 }
 
 export const getOrganization = async (
-    params: GetOrganizationParams
+    params: GetOrganizationParams,
 ): Promise<Organization> => {
     try {
         const org = await request<Organization>(
             "GET",
-            API.GET_ORGANIZTION,
-            params
+            API.GET_ORGANIZATION,
+            params,
         );
 
         return {
@@ -66,7 +65,7 @@ export interface GetArticlesResponse {
 }
 
 export const getArticles = async (
-    params: GetArticlesParams
+    params: GetArticlesParams,
 ): Promise<Articles> => {
     try {
         const {
@@ -114,7 +113,7 @@ export interface GetFeedbacksResponse {
 }
 
 export const getFeedbacks = async (
-    params: GetFeedbacksParams
+    params: GetFeedbacksParams,
 ): Promise<Feedbacks> => {
     try {
         const {
@@ -133,7 +132,7 @@ export const getFeedbacks = async (
                 customHeader: {
                     "x-organization-id": organizationId,
                 },
-            }
+            },
         );
         const feedbacks: Feedbacks = {
             feedbacks: data.data?.map(item => ({
@@ -171,7 +170,7 @@ export const getFeedbackTypes = async (params: GetFeedbackTypeParams) => {
                 customHeader: {
                     "x-organization-id": organizationId,
                 },
-            }
+            },
         );
         return feedbackTypes;
     } catch (error) {
@@ -190,7 +189,7 @@ export interface CreateFeedbackParams {
 
 export const createFeedback = async (
     feedback: CreateFeedbackParams,
-    organizationId: string
+    organizationId: string,
 ): Promise<boolean> => {
     try {
         const data = await request<boolean>("POST", API.FEEDBACK, feedback, {
@@ -217,7 +216,7 @@ export interface GetInformationGuidesResponse {
 }
 
 export const getInformationGuides = async (
-    params: GetInformationGuidesParams
+    params: GetInformationGuidesParams,
 ): Promise<InformationGuides> => {
     try {
         const {
@@ -236,7 +235,7 @@ export const getInformationGuides = async (
                 customHeader: {
                     "x-organization-id": organizationId,
                 },
-            }
+            },
         );
         const informationGuides: InformationGuides = {
             informationGuides: data.data?.map(item => ({
@@ -269,7 +268,7 @@ export interface GetWorkScheduleResponse {
 }
 
 export const getWorkSchedule = async (
-    params: GetWorkScheduleParams
+    params: GetWorkScheduleParams,
 ): Promise<ScheduleAppointment | null> => {
     try {
         const { organizationId } = params;
@@ -281,7 +280,7 @@ export const getWorkSchedule = async (
                 customHeader: {
                     "x-organization-id": organizationId,
                 },
-            }
+            },
         );
         if (!data) {
             return null;
@@ -292,7 +291,7 @@ export const getWorkSchedule = async (
         const schedule: ScheduleAppointment = {
             number: Number(data.yourNumber),
             currentNumber: Number(data.currentNumber),
-            date: date,
+            date,
             fullName: data.fullName,
             content: data.content,
             phoneNumber: data.phoneNumber,
@@ -324,7 +323,7 @@ export interface CreateWorkScheduleResponse {
 }
 
 export const createWorkSchedule = async (
-    params: CreateWorkScheduleParams
+    params: CreateWorkScheduleParams,
 ): Promise<ScheduleAppointment | null> => {
     try {
         const { organizationId, ...rest } = params;
@@ -339,7 +338,7 @@ export const createWorkSchedule = async (
                 customHeader: {
                     "x-organization-id": organizationId,
                 },
-            }
+            },
         );
 
         if (!data) {
@@ -370,7 +369,7 @@ export interface SearchProfileParams {
 export type SearchProfilesResponse = Profile[];
 
 export const searchProfiles = async (
-    params: SearchProfileParams
+    params: SearchProfileParams,
 ): Promise<Profile[] | undefined> => {
     try {
         const result = await request<SearchProfilesResponse>(
@@ -381,7 +380,7 @@ export const searchProfiles = async (
                 customHeader: {
                     "x-organization-id": params.organizationId,
                 },
-            }
+            },
         );
         return result;
     } catch (err) {

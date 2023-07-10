@@ -3,10 +3,11 @@ import { BASE_URL } from "@constants/common";
 import { ResData } from "@dts";
 import { useStore as store } from "@store";
 import { getToken } from "./zalo";
+
 interface FetchOptions {
     useAuth?: boolean;
     baseUrl?: string;
-    customHeader?: {};
+    customHeader?: object;
 }
 
 export async function request<T>(
@@ -14,11 +15,11 @@ export async function request<T>(
     url: string,
     data?: any,
     options?: FetchOptions,
-    retryCount = 0
+    retryCount = 0,
 ): Promise<T> {
     const { useAuth = true, baseUrl = BASE_URL } = options || {};
     const headers = new Headers();
-    let token = store.getState().token;
+    const { token } = store.getState();
 
     if (useAuth && token) {
         headers.append("Authorization", `Bearer ${token}`);
@@ -56,6 +57,7 @@ export async function request<T>(
         }
     }
     if (resData.err || !resData.data) {
+        // eslint-disable-next-line no-throw-literal
         throw { code: resData.err, message: resData.message };
     }
     return resData.data;

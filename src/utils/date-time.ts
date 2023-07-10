@@ -1,15 +1,12 @@
 import { padWithLeadingZeros } from "./string";
 
-export const formatDate = (
-    date: Date,
-    format: string = "mm/dd/yyyy"
-): string => {
+export const formatDate = (date: Date, format = "mm/dd/yyyy"): string => {
     if (!date) {
         return "";
     }
 
-    let day: number = date.getDate();
-    let month: number = date.getMonth() + 1;
+    const day: number = date.getDate();
+    const month: number = date.getMonth() + 1;
     const year = date.getFullYear();
 
     const tokens = {
@@ -26,7 +23,7 @@ export const formatDate = (
         Object.keys(tokens)
             .map(t => `(${t})`)
             .join("|"),
-        "g"
+        "g",
     );
 
     return format.replace(regexp, token => {
