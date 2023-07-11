@@ -1,19 +1,17 @@
 import PageLayout from "@components/layout/PageLayout";
 import React, { useCallback, useState } from "react";
-import { Box, Input, Text } from "zmp-ui";
+import { Box, Input } from "zmp-ui";
 import styled from "styled-components";
 import tw from "twin.macro";
 import AppButton from "@components/customized/Button";
-import SearchResultList from "./SearchResultList";
 import { useStore } from "@store";
+import SearchResultList from "./SearchResultList";
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 interface PropsType {}
 
 const Wrapper = styled(Box)`
     ${tw`bg-white`}
-`;
-
-const Title = styled(Text.Title)`
-    ${tw`text-text_3`}
 `;
 
 const StyledSearchInput = styled(Input.Search)`
@@ -26,11 +24,7 @@ const StyledSearchInput = styled(Input.Search)`
     }
 `;
 
-const SearchBtn = styled(AppButton)`
-    padding-left: 56px;
-    padding-right: 56px;
-`;
-const SearchPage: React.FC<PropsType> = props => {
+const SearchPage: React.FC<PropsType> = () => {
     const [SearchValue, setSearchValue] = useState<string>("");
     const [loading, profiles, searchProfiles] = useStore(state => [
         state.searchingProfiles,
@@ -44,12 +38,9 @@ const SearchPage: React.FC<PropsType> = props => {
         setSearchValue(e?.target.value as string);
     };
 
-    const handleSearch = useCallback(
-        (event?: React.MouseEvent<HTMLElement>) => {
-            searchProfiles({ profileCode: SearchValue });
-        },
-        [searchProfiles, SearchValue]
-    );
+    const handleSearch = useCallback(() => {
+        searchProfiles({ profileCode: SearchValue });
+    }, [searchProfiles, SearchValue]);
 
     return (
         <PageLayout title="Tra cứu hồ sơ">
@@ -71,7 +62,7 @@ const SearchPage: React.FC<PropsType> = props => {
                             clearable
                             size="small"
                             onChange={handleSearchChange}
-                        ></StyledSearchInput>
+                        />
                         <AppButton
                             disabled={disabled || loading}
                             onClick={handleSearch}

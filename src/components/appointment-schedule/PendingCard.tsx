@@ -4,7 +4,7 @@ import { SuccessIcon } from "@components/icons";
 import React, { FC } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { Box, Icon, Text, useNavigate } from "zmp-ui";
+import { Box, Text, useNavigate } from "zmp-ui";
 
 const CardContainer = styled("div")`
     ${tw`px-4 py-8 pt-6 rounded-lg bg-white`}

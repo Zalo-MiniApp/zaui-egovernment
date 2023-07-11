@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { List, Text } from "zmp-ui";
+import { List } from "zmp-ui";
 
-import WithItemClick from "./WithItemClick";
 import { ImageIcon } from "@components/icons";
 import { Utinity } from "@dts";
+import WithItemClick from "./WithItemClick";
 
 export interface ItemProps extends Utinity {
     handleClickUtinity?: ({
@@ -36,7 +36,7 @@ const UtinityItem: FunctionComponent<ItemProps> = props => {
     const { iconSrc, label, handleClickUtinity } = props;
 
     const handleClick = (
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => {
         event.preventDefault();
         handleClickUtinity?.(props);
@@ -47,7 +47,7 @@ const UtinityItem: FunctionComponent<ItemProps> = props => {
             onClick={handleClick}
             prefix={<ImageIcon src={iconSrc} />}
             title={label}
-        ></StyledListItem>
+        />
     );
 };
 

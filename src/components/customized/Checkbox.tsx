@@ -13,8 +13,8 @@ const StyledCheckbox = styled(Checkbox)`
         ${tw`bg-main`}
     }
 `;
-const AppCheckbox: React.FC<CheckboxProps> = props => {
-    return <StyledCheckbox {...props} />;
-};
+const AppCheckbox: React.FC<CheckboxProps> = props => (
+    <StyledCheckbox {...props} />
+);
 
 export default AppCheckbox;

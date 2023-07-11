@@ -52,7 +52,7 @@ const OAItem: FunctionComponent<OAItemProps> = props => {
         <Wrapper
             title={name}
             subTitle={addressStr}
-            prefix={<Avatar size={40} src={logoUrl || Logo}></Avatar>}
+            prefix={<Avatar size={40} src={logoUrl || Logo} />}
             suffix={
                 <Button
                     size="small"
@@ -64,7 +64,7 @@ const OAItem: FunctionComponent<OAItemProps> = props => {
                     Quan Tâm
                 </Button>
             }
-        ></Wrapper>
+        />
     );
 };
 

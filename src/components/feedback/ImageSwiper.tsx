@@ -31,8 +31,8 @@ const ImageSwiper: React.FC<ImageSwiperProps> = ({ imageUrls }) => {
         setImgs(
             imageUrls?.map((img, index) => ({
                 src: img,
-                alt: "slide" + index,
-            }))
+                alt: `slide${index}`,
+            })),
         );
     }, [imageUrls]);
 
@@ -49,6 +49,7 @@ const ImageSwiper: React.FC<ImageSwiperProps> = ({ imageUrls }) => {
         >
             <FeedbackSwiper>
                 {imgs.map((item, index) => (
+                    // eslint-disable-next-line react/no-array-index-key
                     <Swiper.Slide key={index}>
                         <Image
                             src={item.src}

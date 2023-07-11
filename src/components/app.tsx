@@ -7,9 +7,9 @@ import Auth from "./Auth";
 import ErrorNotification from "./notifications/ErrorNotification";
 
 const MyApp = () => {
-    let token = useStore(state => state.token);
+    const token = useStore(state => state.token);
 
-    const [organization, getOrganization] = useStore(state => [
+    const [, getOrganization] = useStore(state => [
         state.organization,
         state.getOrganization,
     ]);

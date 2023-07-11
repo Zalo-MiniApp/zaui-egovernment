@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import Item from "./VerticalListItem";
 import tw from "twin.macro";
 import { Utinity } from "@dts";
 import { Box, List, Text } from "zmp-ui";
+import Item from "./VerticalListItem";
+
 interface VerticalListPorps {
     utinities: Utinity[];
     title?: string;

@@ -3,8 +3,7 @@ import AppCheckbox from "@components/customized/Checkbox";
 
 import { useStore } from "@store";
 
-import React, { useEffect, useState } from "react";
-import { ChangeHandler } from "react-hook-form";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Box, Checkbox } from "zmp-ui";
@@ -82,7 +81,7 @@ const SelectFeedbackType: React.FC<SelectFeedbackTypeProps> = ({
                                 value={type.id}
                                 key={`fb-type-${type.id}`}
                                 label={type.title}
-                            ></AppCheckbox>
+                            />
                         ))}
                     </FeedbackGroup>
                 </>

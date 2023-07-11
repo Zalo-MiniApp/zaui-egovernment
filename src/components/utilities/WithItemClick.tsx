@@ -1,10 +1,9 @@
-import React, { ComponentType, FC } from "react";
-import { UtinityItemProps } from "./UtilityItem";
+import React, { ComponentType } from "react";
 import { openPhone } from "zmp-sdk";
 import { openWebView } from "@service/zalo";
 import { useSnackbar, useNavigate } from "zmp-ui";
 
-function WithItemClick<T>(Component: ComponentType<T & {}>) {
+function WithItemClick<T>(Component: ComponentType<T & object>) {
     return (props: T) => {
         const navigate = useNavigate();
         const { openSnackbar } = useSnackbar();
@@ -33,7 +32,9 @@ function WithItemClick<T>(Component: ComponentType<T & {}>) {
             } else if (phoneNumber) {
                 openPhone({
                     phoneNumber,
-                    success: () => {},
+                    success: () => {
+                        console.log("");
+                    },
                     fail: error => {
                         console.log(error);
                     },

@@ -25,6 +25,7 @@ export type OA = {
     logoUrl?: string;
 };
 
+// eslint-disable-next-line no-shadow
 export enum Status {
     INCOMPLETE,
     COMPLETED,

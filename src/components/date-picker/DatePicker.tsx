@@ -1,15 +1,16 @@
-import React, { FC, forwardRef, useRef, useState } from "react";
+import React, { FC, forwardRef } from "react";
 import ReactDatePicker, {
     ReactDatePickerProps,
     ReactDatePickerCustomHeaderProps,
     registerLocale,
 } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import tw from "twin.macro";
 import vi from "date-fns/locale/vi";
 import { Button, Icon } from "zmp-ui";
 import "styled-components/macro";
+
 registerLocale("vi", vi);
 
 const DatePickerWrapperStyles = createGlobalStyle`
@@ -75,15 +76,17 @@ const DatePickerWrapperStyles = createGlobalStyle`
 		}
 `;
 
-const DatePicker: FC<ReactDatePickerProps> = forwardRef((props, ref) => {
-    const renderCustomHeader = (props: ReactDatePickerCustomHeaderProps) => {
+const DatePicker: FC<ReactDatePickerProps> = forwardRef(props => {
+    const renderCustomHeader = (
+        headerProps: ReactDatePickerCustomHeaderProps,
+    ) => {
         const {
             monthDate,
             increaseMonth,
             decreaseMonth,
             nextMonthButtonDisabled,
             prevMonthButtonDisabled,
-        } = props;
+        } = headerProps;
 
         const month = monthDate.getMonth();
         const year = monthDate.getFullYear();
@@ -97,7 +100,7 @@ const DatePicker: FC<ReactDatePickerProps> = forwardRef((props, ref) => {
                     disabled={prevMonthButtonDisabled}
                     onClick={decreaseMonth}
                     icon={<Icon icon="zi-chevron-left" />}
-                ></Button>
+                />
                 <div className="react-datepicker__custom-header--selected-month">
                     {headerText}
                 </div>
@@ -106,17 +109,17 @@ const DatePicker: FC<ReactDatePickerProps> = forwardRef((props, ref) => {
                     disabled={nextMonthButtonDisabled}
                     onClick={increaseMonth}
                     icon={<Icon icon="zi-chevron-right" />}
-                ></Button>
+                />
             </div>
         );
     };
 
     return (
         <>
-            <DatePickerWrapperStyles></DatePickerWrapperStyles>
+            <DatePickerWrapperStyles />
             <ReactDatePicker
                 customInput="calender"
-                locale={"vi"}
+                locale="vi"
                 renderCustomHeader={renderCustomHeader}
                 {...props}
             />

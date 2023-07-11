@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useStore } from "@store";
 import { useSnackbar } from "zmp-ui";
 

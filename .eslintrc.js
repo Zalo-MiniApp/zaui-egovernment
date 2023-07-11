@@ -35,6 +35,11 @@ module.exports = {
         "no-useless-catch": "off",
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": "error",
+        "react/function-component-definition": "off",
+        "react/require-default-props": "off",
+        "no-use-before-define": "off",
+        "react/jsx-props-no-spreading": "off",
+        "react/no-array-index-key": "warn",
     },
     settings: {
         "import/resolver": {

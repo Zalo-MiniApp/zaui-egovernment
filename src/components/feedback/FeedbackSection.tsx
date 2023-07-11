@@ -1,6 +1,6 @@
 import { TOTAL_FEEDBACKS_PER_PAGE } from "@constants/common";
 import { useStore } from "@store";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import FeedbackList from "./FeedbackList";
 
@@ -52,7 +52,7 @@ const FeedbackSection: React.FC = () => {
             next={handleLoadMore}
             hasMore={hasMore}
             loader={null}
-            scrollableTarget={"feedbacks"}
+            scrollableTarget="feedbacks"
         >
             <FeedbackList data={data} ref={listRef} loading={loading} />
         </InfiniteScroll>

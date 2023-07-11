@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import EmptyDataContainer from "@components/common/EmptyDataContainer";
 import InformationGuideItemSkeleton from "@components/skeleton/InformationGuideItemSkeleton";
 import { InformationGuide } from "@dts";

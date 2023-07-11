@@ -1,9 +1,10 @@
 import React, { FC, useEffect } from "react";
 import PageLayout from "@components/layout/PageLayout";
 import { useStore } from "@store";
-import { CreateScheduleForm } from "./CreateScheduleForm";
 import { useNavigate } from "zmp-ui";
-const CreateScheduleAppointmentPage: FC<any> = props => {
+import { CreateScheduleForm } from "./CreateScheduleForm";
+
+const CreateScheduleAppointmentPage: FC<any> = () => {
     const navigate = useNavigate();
     const getSchedule = useStore(state => state.getSchedule);
     const [schedule, gettingSchedule] = useStore(state => [

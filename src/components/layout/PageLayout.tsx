@@ -1,9 +1,9 @@
-import React, { ReactNode, useRef } from "react";
+import React, { ReactNode, useImperativeHandle, useRef } from "react";
 import styled from "styled-components";
 import { Page } from "zmp-ui";
 import { PageProps } from "zmp-ui/page";
-import DefaultHeader from "./DefaultHeader";
 import tw from "twin.macro";
+import DefaultHeader from "./DefaultHeader";
 
 interface PropsType extends PageProps {
     children?: ReactNode;
@@ -33,13 +33,14 @@ const PageLayout = React.forwardRef<HTMLDivElement, PropsType>((props, ref) => {
         title,
         children,
         customHeader,
-        name,
         restoreScrollBackOnly = true,
         restoreScroll,
         bg,
         ...rest
     } = props;
     const pageRef = useRef<HTMLDivElement>(null);
+
+    useImperativeHandle(ref, () => pageRef.current as HTMLDivElement);
 
     return (
         <StyledPage
@@ -49,7 +50,7 @@ const PageLayout = React.forwardRef<HTMLDivElement, PropsType>((props, ref) => {
             ref={pageRef}
             $bg={bg}
         >
-            {customHeader ? customHeader : <DefaultHeader title={title} back />}
+            {customHeader || <DefaultHeader title={title} back />}
             {children}
         </StyledPage>
     );

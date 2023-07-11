@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import UtinityItem, { UtinityItemProps } from "./UtilityItem";
 import tw from "twin.macro";
+import UtinityItem, { UtinityItemProps } from "./UtilityItem";
+
 interface UtinitiesProps {
     utinities: UtinityItemProps & { key: string }[];
 }

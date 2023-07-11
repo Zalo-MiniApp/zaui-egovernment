@@ -4,6 +4,7 @@ import tw from "twin.macro";
 import { Box } from "zmp-ui";
 import AvatarSkeleton from "./AvatarSkeleton";
 import TextItemSkeleton from "./TextSketeton";
+
 const Wrapper = styled.div``;
 
 const RightWrapper = styled(Box)`
@@ -11,20 +12,18 @@ const RightWrapper = styled(Box)`
     ${tw`ml-2 pr-[96px]`}
 `;
 
-const OAItemSkeleton: React.FunctionComponent = () => {
-    return (
-        <Wrapper>
-            <Box flex>
-                <AvatarSkeleton />
-                <RightWrapper>
-                    <TextItemSkeleton height={20} />
-                    <Box mt={1}>
-                        <TextItemSkeleton />
-                    </Box>
-                </RightWrapper>
-            </Box>
-        </Wrapper>
-    );
-};
+const OAItemSkeleton: React.FunctionComponent = () => (
+    <Wrapper>
+        <Box flex>
+            <AvatarSkeleton />
+            <RightWrapper>
+                <TextItemSkeleton height={20} />
+                <Box mt={1}>
+                    <TextItemSkeleton />
+                </Box>
+            </RightWrapper>
+        </Box>
+    </Wrapper>
+);
 
 export default OAItemSkeleton;

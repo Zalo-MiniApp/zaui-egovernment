@@ -9,8 +9,6 @@ const StyledRadio = styled(Radio)`
         ${tw`bg-main`}
     }
 `;
-const AppRadio: React.FC<RadioProps> = props => {
-    return <StyledRadio {...props} />;
-};
+const AppRadio: React.FC<RadioProps> = props => <StyledRadio {...props} />;
 
 export default AppRadio;

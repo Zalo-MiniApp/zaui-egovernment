@@ -2,9 +2,10 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import { Box, List, Text } from "zmp-ui";
 import tw from "twin.macro";
-import OAItem from "./OAItem";
 import { OAItemSkeleton } from "@components/skeleton";
 import { useStore } from "@store";
+import OAItem from "./OAItem";
+
 const ListWrapper = styled(Box)`
     ${tw`bg-ui_bg`};
 `;
@@ -16,7 +17,7 @@ const ListOAStyled = styled(List)`
     padding: 8px 0;
     margin-top: 16px;
 `;
-const ListOA: FC<any> = props => {
+const ListOA: FC<any> = () => {
     const { officialAccounts } = useStore(state => state.organization) || {
         officialAccounts: [],
     };

@@ -2,16 +2,18 @@ import React, { FC, useEffect, useRef } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Box, Text } from "zmp-ui";
-import NewsList from "./NewsList";
 import { TOTAL_ARTICLES_PER_PAGE } from "@constants/common";
 import { useStore } from "@store";
+import NewsList from "./NewsList";
+
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface NewsProps {}
 
 const Wrapper = styled(Box)`
     ${tw`bg-ui_bg mb-5`};
 `;
 
-const NewsSection: FC<NewsProps> = props => {
+const NewsSection: FC<NewsProps> = () => {
     const [articles, getArticles, loading] = useStore(state => [
         state.articles,
         state.getArticles,
@@ -21,17 +23,8 @@ const NewsSection: FC<NewsProps> = props => {
     const { id: orgId } = useStore(state => state.organization) || {
         id: "",
     };
-    const {
-        articles: data = [],
-        total = 0,
-        page = 1,
-        currentPageSize,
-    } = articles || {};
+    const { articles: data = [] } = articles || {};
 
-    let isHasMore = false;
-    if (data.length < total) {
-        isHasMore = true;
-    }
     useEffect(() => {
         if (orgId && !articles) {
             getArticles({

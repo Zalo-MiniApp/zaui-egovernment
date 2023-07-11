@@ -53,7 +53,7 @@ export const TextArea: React.FC<TextAreaProps> = forwardRef((props, ref) => {
     useImperativeHandle(ref, () => inputRef.current?.textarea);
     return (
         <>
-            <GolbalStyle></GolbalStyle>
+            <GolbalStyle />
             <StyledTextArea {...props} ref={inputRef} />
         </>
     );

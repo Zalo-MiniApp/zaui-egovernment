@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
+
 const AvatarSkeletonStyled = styled.div`
     ${({ size }: { size?: number }) => {
         if (size) {
@@ -19,8 +20,6 @@ const AvatarSkeletonStyled = styled.div`
 
 const AvatarSkeleton: React.FunctionComponent<{ size?: number }> = ({
     size,
-}) => {
-    return <AvatarSkeletonStyled size={size} />;
-};
+}) => <AvatarSkeletonStyled size={size} />;
 
 export default AvatarSkeleton;

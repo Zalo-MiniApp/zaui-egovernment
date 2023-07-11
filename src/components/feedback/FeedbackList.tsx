@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import EmptyDataContainer from "@components/common/EmptyDataContainer";
 import FeedbackItemSkeleton from "@components/skeleton/FeedbackItemSkeleton";
 import { Feedback } from "@dts";
@@ -40,6 +41,7 @@ const FeedbackList = React.forwardRef<HTMLDivElement, FeedbackListProps>(
                 {loading ? (
                     [...Array(5)].map((item, index) => (
                         <FeedbackItemSkeleton
+                            // eslint-disable-next-line react/no-array-index-key
                             key={`feedback-item-skeleton-${index}`}
                         />
                     ))
@@ -52,7 +54,7 @@ const FeedbackList = React.forwardRef<HTMLDivElement, FeedbackListProps>(
                 )}
             </Wrapper>
         );
-    }
+    },
 );
 
 export default FeedbackList;

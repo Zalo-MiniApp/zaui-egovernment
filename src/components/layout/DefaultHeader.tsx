@@ -1,8 +1,9 @@
 import React, { FC } from "react";
-import { Box, Header, Icon } from "zmp-ui";
+import { Header, Icon } from "zmp-ui";
 import styled from "styled-components";
 import tw from "twin.macro";
 import Background from "@assets/header-background.png";
+
 export interface DefaultHeaderProps {
     title?: string;
     back?: boolean;
@@ -40,7 +41,8 @@ const DefaultHeader: FC<DefaultHeaderProps> = props => {
         <HeaderContainer
             title={title}
             backIcon={<Icon icon="zi-arrow-left" />}
-        ></HeaderContainer>
+            showBackIcon={back}
+        />
     );
 };
 

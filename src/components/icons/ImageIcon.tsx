@@ -13,12 +13,10 @@ const IconImg = styled("img")`
     ${tw`w-full h-auto block `}
 `;
 
-const ImageIcon: FC<ImageIconProps> = ({ src }) => {
-    return (
-        <Container>
-            <IconImg src={src} alt=""></IconImg>
-        </Container>
-    );
-};
+const ImageIcon: FC<ImageIconProps> = ({ src }) => (
+    <Container>
+        <IconImg src={src} alt="" />
+    </Container>
+);
 
 export default ImageIcon;

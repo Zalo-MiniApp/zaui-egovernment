@@ -4,6 +4,7 @@ import { TOTAL_INFORMATION_GUIDE_PER_PAGE } from "@constants/common";
 import { useStore } from "@store";
 import React, { useEffect, useRef } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import tw from "twin.macro";
 import "styled-components/macro";
 
@@ -19,7 +20,7 @@ const InformationGuidePage: React.FC = () => {
             state.informationGuides,
             state.getInformationGuides,
             state.gettingInformationGuide,
-        ]
+        ],
     );
 
     const {
@@ -65,7 +66,7 @@ const InformationGuidePage: React.FC = () => {
                 next={handleLoadMore}
                 hasMore={hasMore}
                 loader={null}
-                scrollableTarget={"informationGuides"}
+                scrollableTarget="informationGuides"
             >
                 <InformationGuideList
                     data={data}

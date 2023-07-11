@@ -1,6 +1,6 @@
 import { AppError } from "@dts";
 import debounce from "lodash.debounce";
-import { StateCreator, create } from "zustand";
+import { StateCreator } from "zustand";
 
 export interface AppSlice {
     error?: AppError;

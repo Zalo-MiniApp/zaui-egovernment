@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-prop-types */
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -55,7 +56,7 @@ const UtinityItem: FunctionComponent<UtinityItemProps> = props => {
     const { icon: Icon, label, handleClickUtinity } = props;
 
     const handleClick = (
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>
+        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     ) => {
         event.preventDefault();
         handleClickUtinity?.(props);
@@ -65,7 +66,9 @@ const UtinityItem: FunctionComponent<UtinityItemProps> = props => {
         <Wrapper onClick={handleClick}>
             {Icon && (
                 <IconWrapper>
-                    <CenterIcon>{<Icon />}</CenterIcon>
+                    <CenterIcon>
+                        <Icon />
+                    </CenterIcon>
                 </IconWrapper>
             )}
             <Label size="xxSmall">{label}</Label>

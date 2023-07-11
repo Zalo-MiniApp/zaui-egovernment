@@ -1,10 +1,9 @@
-import React, { FC } from "react";
+import React from "react";
 import styled from "styled-components";
-import { List } from "zmp-ui";
 import tw from "twin.macro";
-import NewsItem from "./NewsItem";
 import { Article } from "@dts";
 import NewsItemSkeleton from "@components/skeleton/NewsItemSkeleton";
+import NewsItem from "./NewsItem";
 
 export interface NewsListProps {
     data: Article[];
@@ -34,7 +33,7 @@ const NewsList = React.forwardRef<HTMLDivElement, NewsListProps>(
                 )}
             </Wrapper>
         );
-    }
+    },
 );
 
 export default NewsList;

@@ -56,7 +56,7 @@ const HomeHeader: FC<HomeHeaderProps> = props => {
                         color="rgba(255,255,255,0.2)"
                         height={16}
                         width={180}
-                    ></TextItemSkeleton>
+                    />
                 ) : (
                     <StyledText>{name}</StyledText>
                 )}

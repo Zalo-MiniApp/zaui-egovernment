@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
     HomeHeader,
     UserInfo,
@@ -9,24 +9,22 @@ import {
 import PageLayout from "@components/layout/PageLayout";
 import { APP_UTINITIES } from "@constants/utinities";
 import { useStore } from "@store";
-import { useNavigate } from "react-router-dom";
 import Contacts from "./Contacts";
 import Procedures from "./Procedures";
 
 const HomePage: React.FunctionComponent = () => {
     const getUser = useStore(state => state.getUserInfo);
-    const [organization, getOrganization] = useStore(state => [
+    const [organization] = useStore(state => [
         state.organization,
         state.getOrganization,
     ]);
-    const navigate = useNavigate();
     const user = useStore(state => state.user);
 
     useEffect(() => {
         (async () => {
+            // eslint-disable-next-line no-unused-expressions
             !user && (await getUser());
         })();
-        return () => {};
     }, []);
 
     return (

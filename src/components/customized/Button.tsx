@@ -35,17 +35,13 @@ export const IconButtonWithLabel: React.FC<
         icon: ReactElement;
         label: string;
     } & Pick<ButtonProps, "onClick">
-> = ({ icon, label, onClick }) => {
-    return (
-        <IconButtonWithLabelWrapper>
-            <StyledIconButton icon={icon} onClick={onClick}></StyledIconButton>
-            <Label>{label}</Label>
-        </IconButtonWithLabelWrapper>
-    );
-};
+> = ({ icon, label, onClick }) => (
+    <IconButtonWithLabelWrapper>
+        <StyledIconButton icon={icon} onClick={onClick} />
+        <Label>{label}</Label>
+    </IconButtonWithLabelWrapper>
+);
 
-const AppButton: React.FC<ButtonProps> = props => {
-    return <StyledButton {...props} />;
-};
+const AppButton: React.FC<ButtonProps> = props => <StyledButton {...props} />;
 
 export default AppButton;

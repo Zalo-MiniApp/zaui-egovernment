@@ -56,7 +56,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     onChange,
 }) => {
     const [imgViewerVisible, setImgViewerVisible] = useState<boolean>(false);
-    const setError = useStore().setError;
+    const { setError } = useStore();
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
     const [imageUrls, setImageUrls] = useState<
@@ -66,7 +66,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     const onClickUpload = async () => {
         try {
             const images = await pickImages({
-                maxItemSize: maxItemSize,
+                maxItemSize,
                 maxSelectItem: maxSelect ? maxSelect - imageUrls.length : 1,
                 serverUploadUrl: BASE_URL + API.UPLOAD_IMAGE,
             });

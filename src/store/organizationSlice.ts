@@ -7,7 +7,7 @@ import {
 } from "@service/services.mock";
 
 import { followOfficialAccount } from "@service/zalo";
-import { StateCreator, create } from "zustand";
+import { StateCreator } from "zustand";
 
 export interface OrganizationSlice {
     organization?: Organization;
@@ -34,12 +34,11 @@ const organizationSlice: StateCreator<OrganizationSlice> = (set, get) => ({
                 org.officialAccounts = org.officialAccounts?.map(item => {
                     if (item.oaId !== params.id) {
                         return item;
-                    } else {
-                        return {
-                            ...item,
-                            follow: true,
-                        };
                     }
+                    return {
+                        ...item,
+                        follow: true,
+                    };
                 });
                 set(state => ({
                     ...state,

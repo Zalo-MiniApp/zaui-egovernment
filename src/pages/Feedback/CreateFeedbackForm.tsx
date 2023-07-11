@@ -1,17 +1,15 @@
-import { Button, Divider, ImageUpload, TextArea } from "@components";
+import { Button, Divider, ImageUpload, TextArea, Input } from "@components";
 import { RATE_LIMIT_CODE } from "@constants";
 import { MAX_FEEDBACK_IMAGES } from "@constants/common";
-import { AppError, FeedbackType } from "@dts";
+import { AppError } from "@dts";
 import { useStore } from "@store";
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { getPhoneNumber } from "zmp-sdk";
 import { Box, Icon } from "zmp-ui";
 import { ImageType } from "zmp-ui/image-viewer";
-import { Input } from "@components";
-import SelectFeedbackType from "./SelectFeedbackType";
 import { useForm } from "react-hook-form";
+import SelectFeedbackType from "./SelectFeedbackType";
 
 export interface IUploadImageResponse {
     domain: string;
@@ -63,21 +61,15 @@ const CreateFeedbackForm: React.FC<CreateFeedbackFormProps> = ({
         const { title, content } = data;
 
         try {
-            const res = await getPhoneNumber({});
-            const { token } = res;
-            if (token) {
-                await postFeedback({
-                    token,
-                    title,
-                    content,
-                    feedBackTypeId: Number(type),
-                    imageUrls: imageUrls.map(img => img.name),
-                });
-            } else {
-                setError({
-                    message: "Có lỗi xảy ra, vui lòng thử lại sau!",
-                });
-            }
+            // const res = await getPhoneNumber({});
+
+            await postFeedback({
+                token: "",
+                title,
+                content,
+                feedBackTypeId: Number(type),
+                imageUrls: imageUrls.map(img => img.name),
+            });
         } catch (err) {
             setError({
                 message: "Có lỗi xảy ra, vui lòng thử lại sau!",
@@ -102,7 +94,6 @@ const CreateFeedbackForm: React.FC<CreateFeedbackFormProps> = ({
             default:
                 return "";
         }
-        return "";
     };
 
     const getErrorMessage = (field: string) => {

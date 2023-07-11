@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 import { Box, Icon, Text } from "zmp-ui";
-import styled from "styled-components";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import tw from "twin.macro";
 import "styled-components/macro";
 import { Button, DatePicker, Input, TextArea } from "@components";
 import { useStore } from "@store";
 import { useForm } from "react-hook-form";
-import { formatDate } from "@utils/date-time";
 import { isValidPhoneNumber } from "@utils/string";
 
-export const CreateScheduleForm = props => {
+export const CreateScheduleForm = () => {
     const [creatingSchedule, createSchedule] = useStore(state => [
         state.creatingSchedule,
         state.createSchedule,
@@ -44,7 +43,6 @@ export const CreateScheduleForm = props => {
             default:
                 return "";
         }
-        return "";
     };
 
     const getErrorMessage = (field: string) => {
@@ -121,7 +119,7 @@ export const CreateScheduleForm = props => {
                         status={errors?.content ? "error" : "default"}
                         placeholder="Nhập nội dung làm việc"
                         {...register("content", { required: true })}
-                    ></TextArea>
+                    />
                 </Box>
             </Box>
             <Box p={4} mt={4} tw="bg-white">

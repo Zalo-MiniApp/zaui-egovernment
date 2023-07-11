@@ -1,6 +1,6 @@
 import { Button } from "@components/customized";
 
-import React, { FC, useCallback, useMemo } from "react";
+import React, { FC, useCallback } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Box, Input } from "zmp-ui";
@@ -30,6 +30,7 @@ const SearchInput: FC<SearchInputProps> = props => {
         const searchProps: SearchInputProps = {
             size: "small",
             clearable: true,
+            ...rest,
         };
 
         searchProps.placeholder = "Nhập mã số hồ sơ";

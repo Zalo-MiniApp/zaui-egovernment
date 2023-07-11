@@ -4,6 +4,7 @@ import tw from "twin.macro";
 import { Profile } from "@dts";
 import { Box, Text } from "zmp-ui";
 import { CopyButton, Divider } from "@components/common";
+
 const Wrapper = styled.div`
     ${tw`bg-white`}
 `;

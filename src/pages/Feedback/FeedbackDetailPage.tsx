@@ -60,7 +60,7 @@ const FeedbackDetailPage: React.FC = () => {
         if (!id) {
             navigate("/", { animate: false, replace: true });
         } else {
-            getFeedback({ id: Number.parseInt(id) });
+            getFeedback({ id: Number(id) });
         }
     }, [id]);
 

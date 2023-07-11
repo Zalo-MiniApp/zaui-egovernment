@@ -21,14 +21,14 @@
         "start:zalo": "zmp start --zalo-app --ios",
         "prettier": "prettier \"**/*.+(js|json|ts)\"",
         "format": "npm run prettier -- --write",
-        "lint": "eslint --ext .js,.ts,.jsx,.tsx",
+        "lint": "eslint ./src --ext .js,.ts,.jsx,.tsx",
         "check-format": "npm run prettier -- --list-different --write",
         "precommit": "lint-staged"
     },
     "lint-staged": {
         "*.{js,ts,tsx,json,css,scss,html,md}": [
-            "eslint --ext .js,.ts,.jsx,.tsx",
-            "prettier --write"
+            "eslint  ./src --ext .js,.ts,.jsx,.tsx",
+            "prettier  ./src --write"
         ]
     },
     "husky": {
@@ -53,6 +53,7 @@
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.43.9",
         "react-infinite-scroll-component": "^6.1.0",
+        "react-router": "^6.14.1",
         "react-router-dom": "^6.8.2",
         "styled-components": "^5.3.8",
         "twin.macro": "^3.3.1",

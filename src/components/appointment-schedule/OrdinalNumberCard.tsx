@@ -5,7 +5,7 @@ import {
     RowDisplay,
     ValueText,
 } from "@components";
-import React, { FC, forwardRef } from "react";
+import React, { forwardRef } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Box, Text } from "zmp-ui";
@@ -38,7 +38,7 @@ const OrdinalNumberCard = forwardRef<HTMLDivElement, OrdinalNumberCardProps>(
             <Container ref={ref}>
                 <ContentWrapper px={4} py={8}>
                     <Box flex flexDirection="row" alignItems="center">
-                        <NumberDisplay number={number || 0}></NumberDisplay>
+                        <NumberDisplay number={number || 0} />
                         <Box ml={6}>
                             <StyledText>Số thứ tự của bạn</StyledText>
                         </Box>
@@ -47,9 +47,7 @@ const OrdinalNumberCard = forwardRef<HTMLDivElement, OrdinalNumberCardProps>(
                         <Divider />
                     </Box>
                     <Box flex flexDirection="row" alignItems="center">
-                        <NumberDisplay
-                            number={currentNumber || 0}
-                        ></NumberDisplay>
+                        <NumberDisplay number={currentNumber || 0} />
                         <Box ml={6}>
                             <StyledText>Số thứ tự hiện tại</StyledText>
                         </Box>
@@ -90,7 +88,7 @@ const OrdinalNumberCard = forwardRef<HTMLDivElement, OrdinalNumberCardProps>(
                 </ContentWrapper>
             </Container>
         );
-    }
+    },
 );
 
 export default OrdinalNumberCard;

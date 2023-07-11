@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Avatar, Box, Text } from "zmp-ui";
-import { User } from "@dts";
 import Background from "@assets/background.png";
 import { useStore } from "@store";
 import { StringUtils } from "@utils";
@@ -20,10 +19,7 @@ const TextName = styled(Text)`
     font-weight: 500;
 `;
 
-const TextPhoneNumber = styled(Text)`
-    color: #767a7f;
-`;
-const UserInfo: FunctionComponent = props => {
+const UserInfo: FunctionComponent = () => {
     const [user, loading] = useStore(state => [
         state.user,
         state.loadingUserInfo,

@@ -30,7 +30,7 @@ const BodyContainer = styled.div`
 `;
 
 const Content = styled.div`
-    ${tw`line-clamp-3`}
+    ${tw`[line-clamp: 3]`}
 `;
 
 const ImageContainer = styled.div`
@@ -49,7 +49,7 @@ const FeedbackItem: React.FC<FeedbackItemProps> = ({ data }) => {
     const navigate = useNavigate();
 
     const onClickFeedback = () => {
-        navigate("/feedbacks/" + data.id);
+        navigate(`/feedbacks/${data.id}`);
     };
 
     return (

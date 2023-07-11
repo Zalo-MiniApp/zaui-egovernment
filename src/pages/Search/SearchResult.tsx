@@ -1,6 +1,6 @@
 import { ProfileIcon } from "@components/icons";
 import { Profile } from "@dts";
-import React, { FC, useCallback } from "react";
+import React, { useCallback } from "react";
 import { createSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import tw from "twin.macro";

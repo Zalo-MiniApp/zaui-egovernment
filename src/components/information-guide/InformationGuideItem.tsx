@@ -27,21 +27,19 @@ const Title = styled.div`
 
 const InformationGuideItem: React.FC<InformationGuideItemProps> = ({
     data,
-}) => {
-    return (
-        <Collapse
-            title={
-                <TitleContainer>
-                    <ImgContainer>
-                        <img src={Union} />
-                    </ImgContainer>
-                    <Title>{data?.question}</Title>
-                </TitleContainer>
-            }
-        >
-            <Answer>{data?.answer}</Answer>
-        </Collapse>
-    );
-};
+}) => (
+    <Collapse
+        title={
+            <TitleContainer>
+                <ImgContainer>
+                    <img src={Union} alt="" />
+                </ImgContainer>
+                <Title>{data?.question}</Title>
+            </TitleContainer>
+        }
+    >
+        <Answer>{data?.answer}</Answer>
+    </Collapse>
+);
 
 export default InformationGuideItem;

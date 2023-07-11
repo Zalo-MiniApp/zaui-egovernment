@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Box } from "zmp-ui";
-import AvatarSkeleton from "./AvatarSkeleton";
 import TextItemSkeleton from "./TextSketeton";
+
 const Wrapper = styled.div`
     ${tw``}
     &:not(:first-child) {
@@ -21,25 +21,23 @@ const ThumbSkeleton = styled.div`
     height: 80px;
 `;
 
-const NewsItemSkeleton: React.FunctionComponent = () => {
-    return (
-        <Wrapper>
-            <Box flex>
-                <ThumbSkeleton />
-                <RightWrapper>
-                    <Box mt={2}>
-                        <TextItemSkeleton height={16} />
-                    </Box>
-                    <Box mt={2}>
-                        <TextItemSkeleton height={20} />
-                    </Box>
-                    <Box mt={1}>
-                        <TextItemSkeleton height={20} />
-                    </Box>
-                </RightWrapper>
-            </Box>
-        </Wrapper>
-    );
-};
+const NewsItemSkeleton: React.FunctionComponent = () => (
+    <Wrapper>
+        <Box flex>
+            <ThumbSkeleton />
+            <RightWrapper>
+                <Box mt={2}>
+                    <TextItemSkeleton height={16} />
+                </Box>
+                <Box mt={2}>
+                    <TextItemSkeleton height={20} />
+                </Box>
+                <Box mt={1}>
+                    <TextItemSkeleton height={20} />
+                </Box>
+            </RightWrapper>
+        </Box>
+    </Wrapper>
+);
 
 export default NewsItemSkeleton;

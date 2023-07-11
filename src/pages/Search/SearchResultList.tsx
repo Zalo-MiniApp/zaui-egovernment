@@ -37,7 +37,7 @@ const InfoWrapper = styled(Box)`
 
 const SearchResultList: FC<SearchResultListProps> = props => {
     const { loading, profiles: searchResult } = props;
-    const isEmpty = !Boolean(searchResult && searchResult.length && !loading);
+    const isEmpty = !(searchResult && searchResult.length && !loading);
     const getSearchResult = () => {
         if (loading) {
             return <SearchItemSkeleton />;

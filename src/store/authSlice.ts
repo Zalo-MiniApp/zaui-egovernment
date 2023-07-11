@@ -1,7 +1,7 @@
 import { User } from "@dts";
 import { getToken, getZaloUserInfo } from "@service/zalo";
-import { StateCreator, create } from "zustand";
-import debounce from "lodash.debounce";
+import { StateCreator } from "zustand";
+
 export interface AuthSlice {
     token?: string;
     user?: User;
@@ -24,12 +24,8 @@ const authSlice: StateCreator<AuthSlice, [], [], AuthSlice> = (set, get) => ({
     setToken: (token: string) => {
         set(state => ({ ...state, token }));
     },
-    getToken: () => {
-        return get().token;
-    },
-    getUser: () => {
-        return get().user;
-    },
+    getToken: () => get().token,
+    getUser: () => get().user,
     setUser: (user: User) => {
         set(state => ({ ...state, user }));
     },
@@ -41,7 +37,7 @@ const authSlice: StateCreator<AuthSlice, [], [], AuthSlice> = (set, get) => ({
             set(state => ({ ...state, loadingUserInfo: true }));
             const user = await getZaloUserInfo();
 
-            set(state => ({ ...state, user: user }));
+            set(state => ({ ...state, user }));
         } catch (err) {
             console.log("ERR: ", err);
         } finally {
