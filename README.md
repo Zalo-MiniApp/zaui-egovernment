@@ -18,7 +18,7 @@ Template for E Government Zalo Mini App
 
 |                                                                             |                                                                        |                                                                        |
 | :-------------------------------------------------------------------------: | :--------------------------------------------------------------------: | :--------------------------------------------------------------------: |
-| <img width="1604" alt="screen shot" src="./readme-assets/screen1.png"> blah | <img width="1604" alt="screen shot" src="./readme-assets/screen2.png"> | <img width="1604" alt="screen shot" src="./readme-assets/screen3.png"> |
+| <img width="1604" alt="screen shot" src="./readme-assets/screen1.png">  | <img width="1604" alt="screen shot" src="./readme-assets/screen2.png"> | <img width="1604" alt="screen shot" src="./readme-assets/screen3.png"> |
 |   <img width="1604" alt="screen shot" src="./readme-assets/screen4.png">    | <img width="1604" alt="screen shot" src="./readme-assets/screen5.png"> | <img width="1604" alt="screen shot" src="./readme-assets/screen6.png"> |
 
 ### Demo
