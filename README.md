@@ -84,7 +84,7 @@ The project follows a specific structure to organize its codebase. Here's an ove
 -   **`src/pages`**: Contains pages and page sections. Each page represents a specific route or view of the application.
 -   **`src/pages/index`**: Contains route configurations for the pages. This is where you define the routing logic of the application.
 -   **`src/constants`**: Defines constants used in the project, such as API endpoints and other configuration values.
--   **`src/env.production` and `src/env.development`**: Edit the API base URL in these environment files (`VITE_BASE_URL`) based on your deployment environment.
+-   **`env.production` and `env.development`**: Edit the API base URL in these environment files (`VITE_BASE_URL`) based on your deployment environment.
 -   **`.env`**: Contains configuration variables for the application. Make sure to update the `APP_ID` in this file.
 -   **`src/utils`**: Contains utility functions that can be used across the project.
 -   **`src/types`**: Contains type declarations for better type safety and code documentation.
@@ -137,7 +137,7 @@ To configure the project for your specific deployment environment and applicatio
 
 ### API Base URL
 
--   Edit the API base URL in the environment files located at `src/env.production` and `src/env.development`. Look for the variable `VITE_BASE_URL` and update it with the appropriate URL for your backend API.
+-   Edit the API base URL in the environment files located at `env.production` and `env.development`. Look for the variable `VITE_BASE_URL` and update it with the appropriate URL for your backend API.
 
 ### API Endpoints
 
