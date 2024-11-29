@@ -3,9 +3,10 @@ import {
     getAccessToken,
     followOA,
     openWebview,
-} from "zmp-sdk/apis";
+    openMediaPicker,
+    saveImageToGallery,
+} from "zmp-sdk";
 import { User } from "@dts";
-import { openMediaPicker, saveImageToGallery } from "zmp-sdk";
 import { ImageType } from "zmp-ui/image-viewer";
 
 export const getZaloUserInfo = async (): Promise<User> => {

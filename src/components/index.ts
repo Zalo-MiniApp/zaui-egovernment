@@ -1,6 +1,5 @@
 export { default as App } from "./app";
 export * from "./layout";
-export { default as UserInfo } from "../pages/Home/UserInfo";
 export * from "./utilities";
 export * from "./oa";
 export * from "./news";
