@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import reactRefresh from "@vitejs/plugin-react-refresh";
+import react from "@vitejs/plugin-react";
 import macrosPlugin from "vite-plugin-babel-macros";
 
 import path from "path";
@@ -8,7 +8,7 @@ export default () => {
     return defineConfig({
         root: "./src",
         base: "./",
-        plugins: [reactRefresh(), macrosPlugin()],
+        plugins: [react(), macrosPlugin()],
         build: {
             target: "es2020",
         },

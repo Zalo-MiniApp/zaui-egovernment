@@ -9,7 +9,8 @@ interface UtinitiesProps {
 
 const UtinitiesWrapper = styled.div`
     ${tw`flex flex-row flex-wrap justify-between bg-ui_bg`};
-    padding: 0 16px 16px 16px;
+    padding: 16px;
+    padding-top: 24px;
 `;
 const Utinities: FunctionComponent<UtinitiesProps> = props => {
     const { utinities } = props;
