@@ -1,14 +1,15 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import macrosPlugin from "vite-plugin-babel-macros";
+import ZaloMiniApp from "zmp-vite-plugin";
 
 import path from "path";
 // https://vitejs.dev/config/
-export default () => {
-    return defineConfig({
+export default () =>
+    defineConfig({
         root: "./src",
         base: "./",
-        plugins: [react(), macrosPlugin()],
+        plugins: [react(), macrosPlugin(), ZaloMiniApp()],
         build: {
             target: "es2020",
         },
@@ -30,4 +31,3 @@ export default () => {
             },
         },
     });
-};
